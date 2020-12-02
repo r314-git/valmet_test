@@ -15,7 +15,7 @@ class database
 {
 	public :
 		fenwick_tree fenwick_tree_data_points;
-		void add(string f_name, type_error &errnom);
-		void query(timestamp l,  timestamp r, data_point & result, type_error &errnom);
+		type_error add(string f_name);
+		type_error query(timestamp l,  timestamp r, data_point & result);
 
 };

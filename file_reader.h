@@ -9,8 +9,6 @@ using namespace std;
 class file_reader
 {
 public:
-	//check(string f_name, type_error errnom);
-				
-	vector<data_point> read_data_points_from_file(string file_name, type_error errnom);
+	type_error read_data_points_from_file(string file_name, vector<data_point> &all);
 
 };

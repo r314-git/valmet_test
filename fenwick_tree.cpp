@@ -4,6 +4,8 @@
 
 void fenwick_tree::add(unsigned long long s, long double value, int quality)
 {
+	//log(LOCATION);
+	
 	for(unsigned long long i = s; i < MAXTIME; i = i | (i + 1))
 		{
 			if(quality == 0)
@@ -17,6 +19,7 @@ void fenwick_tree::add(unsigned long long s, long double value, int quality)
 
 query_ans fenwick_tree::get_sum(unsigned long long f)
 {
+	//log(LOCATION);
 	query_ans res;
 	for(unsigned long long i = f; i > 0; i --)
 		{
@@ -30,7 +33,7 @@ query_ans fenwick_tree::get_sum(unsigned long long f)
 		}
 	return res;
 }
-query_ans fenwick_tree::get_sum (timestamp tmp, bool include_last)
+query_ans fenwick_tree::get_sum(timestamp tmp, bool include_last)
 {
 	query_ans res;
 	unsigned long long time_nano_sec = tmp.s * ten_9 + tmp.ns;
@@ -45,15 +48,15 @@ query_ans fenwick_tree::get_sum (timestamp tmp, bool include_last)
 
 void fenwick_tree::add (data_point tmp)
 {
+	//log(LOCATION);
+	
 	unsigned long long time_nano_sec = tmp.ts.s * ten_9 + tmp.ts.ns;
 	add(time_nano_sec, tmp.value, tmp.quality);
 }
 
-pair<long double, int> fenwick_tree::get_sum(timestamp l, timestamp r, type_error errnom)
-{
-
-	if(errnom != success)
-		return {0,0};
+type_error fenwick_tree::get_sum(timestamp l, timestamp r, data_point &result)
+{	
+	type_error errnom = success;
 	query_ans res_l = get_sum(l, false);
 	query_ans res_r = get_sum(r, true);
 	long double av = (res_r.sum_value - res_l.sum_value) / (1.0 * res_r.n - res_l.n);
@@ -66,7 +69,11 @@ pair<long double, int> fenwick_tree::get_sum(timestamp l, timestamp r, type_erro
 	if(res_r.n - res_l.n == 0)
 	{
 		errnom = zero_data_points_in_interval;
+		log_error(errnom, LOCATION);
+		return errnom;
 	}
-	return {av, worst_quality};
+	result = data_point(l, av, worst_quality); 
+
+	return success;
 
 }

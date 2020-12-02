@@ -1,0 +1,4 @@
+add data_sets/set_17
+get_mean 0 0 18446744072 10000
+get_mean 0 -1 0 100000000000
+exit

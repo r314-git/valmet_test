@@ -18,6 +18,16 @@ typedef enum {
 	problem_with_file,
 	bad_timestamp,
 	read_data_point_error,
+	problem_n_data_point,
+	file_name_error,
+	bad_lr_params,
+	swap_lr_params,
+	read_data_point_error_quality,
+	read_timestamp_error,
+	ns_timestamp_error,
+	value_timestamp_error,
+	end_operation_list
+
 } type_error;
 
 

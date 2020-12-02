@@ -18,9 +18,9 @@ class fenwick_tree
 	map<unsigned long long, unsigned long long> fenwick_tree_quality[3];
 	void add(unsigned long long s, long double value, int quality);
 	query_ans get_sum(unsigned long long f);
-	query_ans get_sum (timestamp tmp, bool include_last);
+	query_ans get_sum(timestamp tmp, bool include_last);
 
 	public:
 		void add (data_point tmp);
-		pair<long double, int> get_sum(timestamp l, timestamp r, type_error errnom);
+		type_error get_sum(timestamp l, timestamp r, data_point &result);
 };

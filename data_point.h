@@ -15,7 +15,9 @@ class data_point
 		long double value;
 		int quality;
 
-		data_point(){}
+		data_point(){
+			errnom = success;
+		}
 		data_point(timestamp ts, long double value, int quality) : ts(ts), value(value), quality(quality)
 		{
 			errnom = success;
@@ -25,3 +27,4 @@ class data_point
 
 
 istream &operator >> (istream & in, data_point & tmp);
+ostream &operator << (ostream & out, data_point & tmp);

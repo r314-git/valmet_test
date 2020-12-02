@@ -1,0 +1,21 @@
+add data_sets/set_1
+add data_sets/set_2
+add data_sets/set_3
+add data_sets/set_4
+add data_sets/set_5
+add data_sets/set_6
+add data_sets/set_7
+add data_sets/set_8
+add data_sets/set_9
+add data_sets/set_10
+add data_sets/set_11
+add data_sets/set_12
+add data_sets/set_13
+get_mean 0 0 0 0
+get_mean 1 1 0 0
+get_mean 1 f 0 0
+get_mean 1 f f f
+get_mean 0 0 1000 1000
+get_mean 0 0 0 100000000000
+exit
+exit

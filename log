@@ -1,0 +1,12 @@
+get_sum : "fenwick_tree.cpp" : 72 :  ERROR 2 : no data points in interval
+main_loop : "main.cpp" : 25 :  ERROR 2 : no data points in interval
+operator>> : "timestamp.cpp" : 15 :  ERROR 12 : problem while reading timestamp: nanosecond more or equal to 1e9
+get_params_operation : "operation.cpp" : 69 :  ERROR 8 : left or right border is incorrect
+get_current_operation : "operation.cpp" : 13 :  ERROR 8 : left or right border is incorrect
+main_loop : "main.cpp" : 17 :  ERROR 8 : left or right border is incorrect
+get_type_of_operation : "operation.cpp" : 41 :  op = 0 ERROR 1 : no such operation
+get_current_operation : "operation.cpp" : 8 :  ERROR 1 : no such operation
+main_loop : "main.cpp" : 17 :  ERROR 1 : no such operation
+get_type_of_operation : "operation.cpp" : 41 :  op = 100000000000 ERROR 1 : no such operation
+get_current_operation : "operation.cpp" : 8 :  ERROR 1 : no such operation
+main_loop : "main.cpp" : 17 :  ERROR 1 : no such operation

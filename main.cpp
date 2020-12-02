@@ -1,12 +1,7 @@
 #include "all.h"
 
-extern string exist_errors[];
 
 database db;
-
-
-
-map<string, int> operation :: id_operation  = {{"add", 1}, {"get mean", 2}};
 
 
 void main_loop()
@@ -14,15 +9,30 @@ void main_loop()
 	operation tmp_operation;
 	type_error errnom;
 	data_point result;
+
 	while(true)
 	{
-		type_error errnom = success;
-		tmp_operation.get_current_operation(errnom);
-		if(errnom != success)
-			cout << exist_errors[errnom] << endl;
-		else
-			if(errnom == success)
-				tmp_operation.execute_operation(db, errnom, result);
+		errnom = tmp_operation.get_current_operation();
+		if(errnom != success){
+			log_error(errnom, LOCATION);
+			if(errnom == end_operation_list)
+				break;
+		}
+		else	
+		{
+			errnom = tmp_operation.execute_operation(db, result);
+			if(errnom != success)
+				log_error(errnom, LOCATION);
+			else{
+				if(tmp_operation.type_id == 0)
+					break;
+				if(tmp_operation.type_id == 1)
+					cout << "datapoints were successfully added" << endl;
+				if(tmp_operation.type_id == 2)
+					cout << "result : " << result << endl;
+			}
+		} 
+		
 	}	
 }
 
